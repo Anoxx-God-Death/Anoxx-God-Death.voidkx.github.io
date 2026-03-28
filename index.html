@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>void.kx — swarm intelligence</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="scanlines"></div>
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">void<span class="logo-dot">.</span>kx</div>
+      <div class="tagline">swarm intelligence engine · collective prediction</div>
+    </div>
+    <div class="header-right">
+      <div class="status-indicator" id="statusIndicator">
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText">STANDBY</span>
+      </div>
+      <button class="btn-reset hidden" id="resetBtn">✕ RESET</button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="hero" id="heroBlock">
+      <div class="hero-icon">◈</div>
+      <h1 class="hero-title">Swarm Intelligence</h1>
+      <p class="hero-sub">Drop any topic, article, or question. void.kx spawns autonomous AI agents — each with unique personalities, biases, and worldviews — runs them in parallel, and synthesizes a collective prediction report.</p>
+    </div>
+
+    <!-- INPUT -->
+    <section id="inputSection">
+      <div class="input-card">
+        <div class="input-top-bar">
+          <span class="input-label">◈ SUBJECT INPUT</span>
+          <span class="char-count" id="charCount">0</span>
+        </div>
+        <textarea
+          id="topicInput"
+          placeholder="Enter a question, paste a full article, or describe a scenario...
+
+→  Will AI replace most white-collar jobs by 2030?
+→  [paste any news article here]
+→  Should India go to war with Pakistan over Kashmir?
+→  Is Bitcoin going to $500k this cycle?"
+        ></textarea>
+        <div class="input-bottom-bar">
+          <div class="controls-left">
+            <div class="slider-group">
+              <span class="ctrl-label">AGENTS</span>
+              <input type="range" id="agentSlider" min="3" max="12" value="6" />
+              <span class="ctrl-val" id="agentVal">6</span>
+            </div>
+          </div>
+          <button class="btn-launch" id="launchBtn">
+            <span>▶ LAUNCH SWARM</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <div class="progress-block hidden" id="progressBlock">
+      <div class="progress-label" id="progressLabel">SPAWNING AGENTS...</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-phases" id="progressPhases"></div>
+    </div>
+
+    <!-- SUBJECT PILL -->
+    <div class="subject-pill hidden" id="subjectPill">
+      <span class="pill-tag">SUBJECT //</span>
+      <span id="pillText"></span>
+    </div>
+
+    <!-- AGENTS -->
+    <section class="hidden" id="agentsSection">
+      <div class="sec-header">
+        <span class="sec-icon" style="color:var(--accent2)">◆</span>
+        <span class="sec-label" id="agentsLabel">AGENT SWARM</span>
+        <div class="live-badge hidden" id="liveBadge">● LIVE</div>
+      </div>
+      <div class="agents-grid" id="agentsGrid"></div>
+    </section>
+
+    <!-- DEBATE -->
+    <section class="hidden" id="debateSection">
+      <div class="sec-header">
+        <span class="sec-icon" style="color:var(--purple)">◉</span>
+        <span class="sec-label">AGENT DEBATE FEED</span>
+      </div>
+      <div class="debate-feed" id="debateFeed"></div>
+    </section>
+
+    <!-- SYNTHESIS -->
+    <section class="hidden" id="synthesisSection">
+      <div class="sec-header">
+        <span class="sec-icon glow-cyan">▲</span>
+        <span class="sec-label glow-cyan">COLLECTIVE PREDICTION REPORT</span>
+      </div>
+      <div class="synthesis-card" id="synthesisCard">
+        <div id="synthesisContent"></div>
+      </div>
+      <div class="report-actions">
+        <button class="btn-action" id="newSimBtn">↺ NEW SIMULATION</button>
+        <button class="btn-action" id="copyBtn">⎘ COPY REPORT</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>void.kx · built by anoxx · powered by gemini 2.0 flash</span>
+  </footer>
+
+  <script src="api.js"></script>
+  <script src="agents.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
